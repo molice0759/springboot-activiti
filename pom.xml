@@ -19,6 +19,7 @@
 		<druid-spring-boot-starter.version>1.1.9</druid-spring-boot-starter.version>
 		<activiti.version>5.22.0</activiti.version>
         <mybatis.generator.version>1.3.5</mybatis.generator.version>
+		<mybatis-plus.version>2.2.0</mybatis-plus.version>
 	</properties>
 
 	<dependencies>
@@ -31,6 +32,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!--mybatis-->
+		<!--Mybatis-Plus不需要添加 Mybatis及Mybatis-Spring依赖，Mybatis-Plus会自动维护-->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatis-plus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>${mybatis-plus.version}</version>
 		</dependency>
 
         <!-- Mybatis-Plus代码生成器 -->
@@ -84,6 +98,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- mybatis反向工程插件 -->
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>${mybatis.generator.version}</version>
+				<configuration>
+					<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+					<verbose>true</verbose>
+					<overwrite>true</overwrite>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

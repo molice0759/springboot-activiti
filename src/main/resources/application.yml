@@ -38,3 +38,14 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     useGlobalDataSourceStat: true
+mybatis-plus:
+  #mapper扫描路径
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    #获取数据库自增主键值
+    use-generated-keys: true
+    #开启驼峰命名转换
+    use-column-label: true
+    #开启驼峰命名转换
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
