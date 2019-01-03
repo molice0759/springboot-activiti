@@ -13,6 +13,12 @@ File Encoding         : 65001
 Date: 2019-01-03 18:48:05
 */
 
+
+DROP DATABASE IF EXISTS test;
+CREATE DATABASE IF NOT EXISTS test DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+USE test;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
